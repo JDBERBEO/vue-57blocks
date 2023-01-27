@@ -1,12 +1,13 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a href="https://bulma.io">
+      <a class="navbar-logo" href="/">
         <img
-          src="https://res.cloudinary.com/dj7wucuvf/image/upload/v1635712873/57BlocksTest/oA0oMpur_400x400_syb2qt.jpg"
-          width="112"
-          height="28"
+          src="https://res.cloudinary.com/dj7wucuvf/image/upload/v1635712876/57BlocksTest/Pokeball_ljmbbc.png"
+          width="60"
+          height="40"
           alt="logo"
+          class="navbar-logo"
         />
       </a>
       <a
@@ -21,26 +22,12 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item"> Home </a>
-
-        <a class="navbar-item"> Documentation </a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"> More </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item"> About </a>
-            <a class="navbar-item"> Jobs </a>
-            <a class="navbar-item"> Contact </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item"> Report an issue </a>
-          </div>
-        </div>
+        <a v-for="link in links" :key="link.id" class="navbar-item" :href="link.href">{{
+          link.text
+        }}</a>
       </div>
-
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
@@ -60,9 +47,8 @@ export default {
   data() {
     return {
       links: [
-        { id: 1, text: 'Home', href: '/home' },
-        { id: 2, text: 'About', href: '/about' },
-        { id: 3, text: 'Contact', href: '/contact' },
+        { id: 1, text: 'Home', href: '/' },
+        { id: 2, text: 'Favorite', href: '/favorite' },
       ],
     };
   },

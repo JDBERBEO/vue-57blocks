@@ -1,12 +1,12 @@
 <template>
-  <div></div>
+  <home-main />
 </template>
 
 <script>
-// import HelloWorld from '@/components/HelloWorld.vue';
+import HomeMain from '@/components/home/HomeMain.vue';
 
 export default {
   name: 'HomeView',
-  components: {},
+  components: { HomeMain },
 };
 </script>
