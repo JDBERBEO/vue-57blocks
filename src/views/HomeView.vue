@@ -1,5 +1,5 @@
 <template>
-  <home-main />
+  <home-main class="home-container" />
 </template>
 
 <script>
