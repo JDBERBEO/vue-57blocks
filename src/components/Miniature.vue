@@ -11,15 +11,9 @@
         <div class="media-content">
           <p class="title">{{ pokemon.name }}</p>
           <p class="subtitle">@johnsmith</p>
+          <button @click="sendId">{{ isFavorite ? 'DELETE' : 'ADD FAVORITE' }}</button>
         </div>
       </div>
-
-      <!-- <div class="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-        <a>@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-        <br />
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      </div> -->
     </div>
   </div>
 </template>
@@ -33,6 +27,15 @@ export default {
     pokemon: {
       type: Object,
       default: () => {},
+    },
+    isFavorite: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    sendId() {
+      return this.$emit('pokemonId', this.pokemon.id);
     },
   },
 };
