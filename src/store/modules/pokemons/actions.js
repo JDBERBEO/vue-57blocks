@@ -21,7 +21,6 @@ export const actions = {
       commit(types.mutations.SET_PREVIOUS_PAGE, data.previous);
       commit(types.mutations.SET_IS_LOADING, false);
     } catch (error) {
-      console.error('err: ', error);
       commit(types.mutations.SET_IS_LOADING, false);
     }
   },
