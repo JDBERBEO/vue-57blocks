@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-plusplus */
 import PokemonApi from '@/api/PokemonApi';
+import axios from 'axios';
 import { typesPokemons as types } from './typesPokemons';
 
 export const actions = {
@@ -27,6 +28,20 @@ export const actions = {
 
   [types.actions.UPDATE_CURRENT_PAGE]({ commit }, payload) {
     commit(types.mutations.SET_CURRENT_PAGE, payload);
+  },
+  async [types.actions.FETCH_FAVORITE_POKEMONS]({ commit }, payload) {
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (!favorites) return null;
+
+    const promises = [];
+
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < favorites.length; i++) {
+      promises.push(axios.get(`https://pokeapi.co/api/v2/pokemon/${favorites[i]}`));
+    }
+    const responses = await Promise.all(promises);
+    const favoritesData = responses.map((r) => r.data);
+    return commit(types.mutations.SET_FAVORITE_POKEMONS, favoritesData);
   },
 };
 export default {};

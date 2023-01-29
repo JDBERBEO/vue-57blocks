@@ -16,5 +16,8 @@ export const mutations = {
   [types.mutations.SET_IS_LOADING](state, payload) {
     state.isLoading = payload;
   },
+  [types.mutations.SET_FAVORITE_POKEMONS](state, payload) {
+    state.favorites = payload;
+  },
 };
 export default {};
