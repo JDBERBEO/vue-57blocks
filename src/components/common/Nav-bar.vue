@@ -23,18 +23,16 @@
       </a>
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a v-for="link in links" :key="link.id" class="navbar-item" :href="link.href">{{
-          link.text
-        }}</a>
+      <div class="navbar-start" v-if="hasToken">
+        <a v-for="link in links" :key="link.id" class="navbar-item" :href="link.href">
+          {{ link.text }}
+        </a>
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light"> Log in </a>
+            <a class="button is-light" v-if="hasToken" @click="handleLogout"> Log out </a>
+            <a class="button is-light" v-else> Log in </a>
           </div>
         </div>
       </div>
@@ -51,6 +49,17 @@ export default {
         { id: 2, text: 'Favorite', href: '/favorite' },
       ],
     };
+  },
+  computed: {
+    hasToken() {
+      return localStorage.getItem('token');
+    },
+  },
+  methods: {
+    handleLogout() {
+      localStorage.removeItem('token');
+      this.$router.push('/login');
+    },
   },
 };
 </script>
