@@ -2,7 +2,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-plusplus */
 import PokemonApi from '@/api/PokemonApi';
-import axios from 'axios';
 import { typesPokemons as types } from './typesPokemons';
 
 export const actions = {

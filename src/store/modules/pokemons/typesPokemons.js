@@ -9,6 +9,7 @@ export const typesPokemons = {
     FETCH_PREVIOUS_PAGE: '@actions/fetchPreviousPage',
     UPDATE_CURRENT_PAGE: '@actions/updateCurrentPage',
     FETCH_FAVORITE_POKEMONS: '@actions/fetchFavoritePokemons',
+    UPDATE_FAVORITE_POKEMONS: '@actions/updateFavoritePokemons',
   },
   mutations: {
     SET_POKEMONS: '@mutations/setPokemons',
