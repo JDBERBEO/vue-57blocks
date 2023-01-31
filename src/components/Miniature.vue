@@ -9,7 +9,6 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <!-- <p class="title">ID:{{ userId }}</p> -->
           <p class="title">{{ pokemon.name }}</p>
           <p class="subtitle">XP: {{ pokemon.base_experience }}</p>
           <button
