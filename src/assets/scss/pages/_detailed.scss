@@ -1,0 +1,14 @@
+.details-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #3d7df3;
+  background-image: linear-gradient(
+    225deg,
+    #ece2e8e7 0%,
+    #161818 50%,
+    #df2f18 100%
+  );
+}

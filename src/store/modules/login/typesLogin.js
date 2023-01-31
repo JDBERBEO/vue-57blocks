@@ -5,9 +5,11 @@ export const typesLogin = {
   getters: {},
   actions: {
     LOGIN_VALIDATION: '@actions/loginValidation',
+    UPDATE_HAS_TOKEN: '@actions/updateHasToken',
   },
   mutations: {
-    SET_LOGIN_ERROR: '@actions/loginError',
+    SET_LOGIN_ERROR: '@mutations/setLoginError',
+    SET_HAS_TOKEN: '@mutations/setHasToken',
   },
 };
 

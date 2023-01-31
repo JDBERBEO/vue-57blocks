@@ -1,7 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="loader-container">
-    <span class="loader-mixin" style="height: 30px; width: 30px" />
+    <h1 class="loader-container__title">Loading so fast!</h1>
+    <img
+      class="loader-container__image"
+      src="https://res.cloudinary.com/dj7wucuvf/image/upload/v1635712876/57BlocksTest/Pokeball_ljmbbc.png"
+      alt="pikachu spinning"
+    />
   </div>
 </template>
 

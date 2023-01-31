@@ -1,0 +1,16 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 200px;
+  &__button {
+    background-color: rgb(231, 231, 204);
+    width: 70px;
+    color: rgba(79, 122, 240, 0.616);
+    box-shadow: 5px 5px 5px rgba(238, 241, 7, 0.995);
+  }
+  &__button:hover {
+    color: rgba(238, 241, 7, 0.995);
+    border-color: rgba(238, 241, 7, 0.995);
+  }
+}

@@ -1,8 +1,14 @@
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
-  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-    <a class="pagination-previous" @click="goToPreviousPage">Previous</a>
-    <a class="pagination-next" @click="goNextPage">next</a>
+  <nav
+    class="pagination is-centered pagination-container pagination is-rounded"
+    role="navigation"
+    aria-label="pagination"
+  >
+    <a class="pagination-previous pagination-container__button" @click="goToPreviousPage"
+      >Previous</a
+    >
+    <a class="pagination-next pagination-container__button" @click="goNextPage">Next</a>
   </nav>
 </template>
 
@@ -30,5 +36,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
