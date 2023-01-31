@@ -1,15 +1,22 @@
 .home-container {
-  width: 100%;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #ff3cac;
+  background-color: #f33d3d;
   background-image: linear-gradient(
     225deg,
-    #ff3cac 0%,
+    #ece2e8 0%,
     #784ba0 50%,
     #2b86c5 100%
   );
   overflow: auto;
+  &__title {
+    font-family: $body-font-family;
+    font-size: 70px;
+    text-align: center;
+    color: #f2eb2c;
+    padding: 40px;
+  }
 }

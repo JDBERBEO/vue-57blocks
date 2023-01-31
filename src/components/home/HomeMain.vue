@@ -1,13 +1,17 @@
 <template>
-  <div>
+  <div class="container">
     <loader v-if="isLoading" />
     <div v-else>
+      <div>
+        <h1 class="home-container__title">Gotta Catch 'Em All!</h1>
+      </div>
       <div class="columns is-multiline">
         <div class="column is-one-third" v-for="(pokemon, index) in pokemons" :key="index">
-          <miniature :pokemon="pokemon" @pokemonId="addPokemon" />
+          <div class="miniature-container">
+            <miniature :pokemon="pokemon" @pokemonId="addPokemon" />
+          </div>
         </div>
       </div>
-      <pokemon-pagination />
     </div>
   </div>
 </template>
@@ -15,12 +19,12 @@
 <script>
 import { mapActions, mapState } from 'vuex';
 import { typesPokemons as types } from '@/store/modules/pokemons/typesPokemons';
+import { typesLogin as login } from '@/store/modules/login/typesLogin';
 import Miniature from '@/components/Miniature.vue';
-import PokemonPagination from './PokemonPagination.vue';
 import Loader from '../common/Loader.vue';
 
 export default {
-  components: { Miniature, PokemonPagination, Loader },
+  components: { Miniature, Loader },
   data() {
     return {
       favorites: JSON.parse(localStorage.getItem('favorites')) || [],
@@ -33,8 +37,18 @@ export default {
     ...mapActions(types.PATH, {
       fetchPokemons: types.actions.FETCH_POKEMONS,
     }),
+    ...mapActions(login.PATH, { updateHasToken: login.actions.UPDATE_HAS_TOKEN }),
+    validateToken() {
+      return !!localStorage.getItem('token');
+    },
     addPokemon(pokemonId) {
-      this.favorites = [...this.favorites, pokemonId];
+      const duplicatedFavorite = this.favorites.some((fav) => pokemonId === fav);
+      if (!duplicatedFavorite) {
+        this.favorites = [...this.favorites, pokemonId];
+        return this.favorites;
+      }
+      // eslint-disable-next-line no-alert
+      return alert('Pokemon already in favorites');
     },
   },
   watch: {
@@ -46,8 +60,9 @@ export default {
   },
   mounted() {
     this.fetchPokemons();
+    if (this.validateToken()) {
+      this.updateHasToken(true);
+    }
   },
 };
 </script>
-
-<style></style>

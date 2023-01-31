@@ -15,10 +15,14 @@ export const actions = {
         const token = uuidv4();
         localStorage.setItem('token', token);
         commit(types.mutations.SET_LOGIN_ERROR, false);
+        commit(types.mutations.SET_HAS_TOKEN, true);
         return router.push('/');
       }
       return commit(types.mutations.SET_LOGIN_ERROR, true);
     });
+  },
+  [types.actions.UPDATE_HAS_TOKEN]({ commit }, payload) {
+    commit(types.mutations.SET_HAS_TOKEN, payload);
   },
 };
 export default {};

@@ -1,5 +1,7 @@
 <template>
-  <favorites-main />
+  <div class="home-container">
+    <favorites-main />
+  </div>
 </template>
 
 <script>
@@ -10,5 +12,3 @@ export default {
   components: { FavoritesMain },
 };
 </script>
-
-<style></style>

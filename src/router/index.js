@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import FavoritesView from '../views/FavoritesView.vue';
+import PokemonDetails from '../views/PokemonDetailsView.vue';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,15 @@ const routes = [
     path: '/favorite',
     name: 'favorite',
     component: FavoritesView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/pokemon/:pokemonId',
+    name: 'pokemon',
+    component: PokemonDetails,
+    props: true,
     meta: {
       requiresAuth: true,
     },

@@ -1,17 +1,27 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="card" style="width: 200px; height: 300px; margin: 10px">
-    <div class="card-image">
+  <div class="card pokemon-card">
+    <div class="card-image pokemon-card__sprite">
       <figure class="image">
-        <img :src="pokemon.sprites.front_default" alt="Placeholder image" />
+        <img :src="pokemon.sprites?.front_default" alt="Placeholder image" />
       </figure>
     </div>
     <div class="card-content">
       <div class="media">
         <div class="media-content">
+          <!-- <p class="title">ID:{{ userId }}</p> -->
           <p class="title">{{ pokemon.name }}</p>
-          <p class="subtitle">@johnsmith</p>
-          <button @click="sendId">{{ isFavorite ? 'DELETE' : 'ADD FAVORITE' }}</button>
+          <p class="subtitle">XP: {{ pokemon.base_experience }}</p>
+          <button
+            v-if="!isDetails"
+            :class="['button', isFavorite ? 'is-danger' : 'is-success']"
+            @click="sendId"
+          >
+            {{ isFavorite ? 'DELETE' : 'ADD FAVORITE' }}
+          </button>
+          <button class="button is-warning" @click="goToDetails" v-if="!isDetails">
+            SEE DETAILS
+          </button>
         </div>
       </div>
     </div>
@@ -21,7 +31,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      showModal: false,
+    };
   },
   props: {
     pokemon: {
@@ -32,10 +44,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    isDetails: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     sendId() {
       return this.$emit('pokemonId', this.pokemon.id);
+    },
+    goToDetails() {
+      this.$router.push(`/pokemon/${this.pokemon.id}`);
     },
   },
 };

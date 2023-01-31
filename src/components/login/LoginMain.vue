@@ -1,8 +1,8 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
   <div>
-    <div class="card">
-      <p v-show="loginError">User or password are not valid</p>
+    <div class="card" style="width: 300px">
+      <p v-show="loginError" style="color: red">User or password are not valid</p>
       <div class="card-content">
         <form @submit.prevent="login">
           <div class="field">
@@ -54,5 +54,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
