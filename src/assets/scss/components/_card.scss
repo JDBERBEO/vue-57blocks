@@ -1,0 +1,11 @@
+.pokemon-card {
+  width: 300px;
+  box-shadow: 10px 10px 20px rgba(238, 241, 7, 0.995);
+  background-color: rgba(25, 134, 224, 0.541);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  border: 1px hidden rgba(19, 36, 92, 0.776);
+  &__sprite {
+    border-bottom: 2px solid rgba(167, 179, 218, 0.776);
+  }
+}
