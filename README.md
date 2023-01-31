@@ -25,3 +25,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/47923495/215668625-4d0ef411-e967-4625-86fa-59559536d163.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/47923495/215669313-3fd4d85f-f631-42f0-8a22-ef1b035a8720.gif)
