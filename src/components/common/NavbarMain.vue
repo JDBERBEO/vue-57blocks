@@ -22,7 +22,6 @@
           <div class="navbar-item">
             <div class="buttons">
               <button class="button is-light" v-if="hasToken" @click="handleLogout">Log out</button>
-              <!-- <a class="button is-light" v-else> Log in </a> -->
             </div>
           </div>
         </div>
