@@ -8,14 +8,15 @@
 <script>
 import HomeMain from '@/components/home/HomeMain.vue';
 import PokemonPagination from '@/components/home/PokemonPagination.vue';
-import { mapState } from 'vuex';
-import { typesPokemons as types } from '@/store/modules/pokemons/typesPokemons';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { mapState } from 'pinia';
+import { usePokemonStore } from '@/store/PokemonStore';
 
 export default {
   name: 'HomeView',
   components: { HomeMain, PokemonPagination },
   computed: {
-    ...mapState(types.PATH, ['isLoading']),
+    ...mapState(usePokemonStore, ['isLoading']),
   },
 };
 </script>

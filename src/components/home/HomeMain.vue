@@ -17,10 +17,12 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { mapActions, mapState } from 'pinia';
 import { typesPokemons as types } from '@/store/modules/pokemons/typesPokemons';
 import { typesLogin as login } from '@/store/modules/login/typesLogin';
 import Miniature from '@/components/Miniature.vue';
+import { usePokemonStore } from '@/store/PokemonStore';
 import Loader from '../common/Loader.vue';
 
 export default {
@@ -31,11 +33,11 @@ export default {
     };
   },
   computed: {
-    ...mapState(types.PATH, ['pokemons', 'isLoading']),
+    ...mapState(usePokemonStore, ['pokemons', 'isLoading']),
   },
   methods: {
-    ...mapActions(types.PATH, {
-      fetchPokemons: types.actions.FETCH_POKEMONS,
+    ...mapActions(usePokemonStore, {
+      fetchPokemons: 'fetchPokemons',
     }),
     ...mapActions(login.PATH, { updateHasToken: login.actions.UPDATE_HAS_TOKEN }),
     validateToken() {

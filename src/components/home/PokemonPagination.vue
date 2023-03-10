@@ -14,16 +14,17 @@
 
 <script>
 import { typesPokemons as types } from '@/store/modules/pokemons/typesPokemons';
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from 'pinia';
+import { usePokemonStore } from '@/store/PokemonStore';
 
 export default {
   computed: {
-    ...mapState(types.PATH, ['nextPage', 'previousPage', 'currentPage']),
+    ...mapState(usePokemonStore, ['nextPage', 'previousPage', 'currentPage']),
   },
   methods: {
-    ...mapActions(types.PATH, {
-      updateCurrentPage: types.actions.UPDATE_CURRENT_PAGE,
-      fetchPokemons: types.actions.FETCH_POKEMONS,
+    ...mapActions(usePokemonStore, {
+      updateCurrentPage: 'updateCurrentPage',
+      fetchPokemons: 'fetchPokemons',
     }),
     goNextPage() {
       this.updateCurrentPage(this.nextPage);
